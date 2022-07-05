@@ -23,12 +23,11 @@ function ToDoList() {
     return []
   }
 
-
+  //coloca data
   const today = new Date();
   const formattedDate = format(today, 'dd/MM/yyyy');
-  // Date.textContent = formattedDate;
 
-
+  //Acrescenta item / limpar input
   function itemList(event:FormEvent<HTMLFormElement>) {
     event.preventDefault(); 
 
@@ -43,10 +42,10 @@ function ToDoList() {
     localStorage.setItem('toDoList', JSON.stringify(setTodosToDos))
   }
 
-  
+  //remove toDos
   const removeToDo = React.useCallback((todoRemove:string) => {
     let newTodos = [...todos];
-    const filtered = newTodos.filter(toDo => {
+    const filtered = todos.filter(toDo => {
       return toDo.name !== todoRemove;
     });
 
